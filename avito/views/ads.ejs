@@ -23,13 +23,13 @@
         </a>
     </div>
 </div>
-<div class="cards-wrapper" style="display: flex;flex-direction: row;flex-wrap: wrap;align-content: space-around;justify-content: space-evenly;align-items: center; font-family: 'Lato', sans-serif">
+<div class="cards-wrapper" style="display: flex;flex-direction: row;flex-wrap: wrap;align-content: space-around;justify-content: space-evenly;align-items: center; font-family: 'Lato', sans-serif; font-weight: 700;" >
     <% cards.forEach(function (ad) {%>
     <div class = "card" style="display: flex;flex-direction: column;flex-wrap: nowrap;align-content: center;justify-content: center;align-items: center;min-height: 350px;min-width: 355px;background: #f1f1f1;border-color: black;border-radius: 45px;margin-top: 60px;box-shadow: 13px 15px 15px 0px rgba(15, 15, 15, 0.2);">
     <p><%=ad.title %></p>
     <img src="data:image/<%=ad.photos.contentType%>;base64,
                      <%=ad.photos.data.toString('base64')%>" style="height: 200px;width: 300px;border-radius: 30px;">
-        <a href="/ads/<%=ad._id%>"><div class="show button" style="margin-top: 15px;height: 40px;background: aquamarine;width: 201px;text-align: center;vertical-align: middle;display: flex;border-radius: 30px;align-content: center;justify-content: center;align-items: center;">Показать объявление</div></a>
+        <a href="/show_ad?id=<%=ad._id%>"><div class="show button" style="margin-top: 15px;height: 40px;background: aquamarine;width: 201px;text-align: center;vertical-align: middle;display: flex;border-radius: 30px;align-content: center;justify-content: center;align-items: center;">Показать объявление</div></a>
     </div>
     <%})%>
 </div>

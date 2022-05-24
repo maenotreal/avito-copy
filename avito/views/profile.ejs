@@ -25,7 +25,7 @@
 </div>
 <div class="profile">
     <% uData.forEach(function (data) {%>
-    <div class="profile_data" style="font-family: 'lato', sans-serif;display: flex;flex-direction: column;flex-wrap: nowrap;align-content: center;justify-content: center;align-items: center;margin-top: 10%;">
+    <div class="profile_data" style="font-family: 'lato', sans-serif;display: flex;flex-direction: column;flex-wrap: nowrap;align-content: center;justify-content: center;align-items: center;margin-top: 7%;">
         <h2>Здравствуйте, <%=data.name%>!</h2>
         <div class="login" style="margin: 10px;">Ваш логин: <%=data.login%></div>
         <div class="number" style="margin: 10px;">Ваш телефон: <%=data.number%></div>
@@ -33,9 +33,9 @@
             <div class="ads" style="margin: 10px;">У вас нету объявлений</div>
         <%} else {%>
             <div class="ads" style="margin: 10px;">Ваши объявления:</div>
-            <div class="cards-wrapper" style="display: flex;flex-direction: row;flex-wrap: wrap;align-content: space-around;justify-content: space-evenly;align-items: center; font-family: 'Lato', sans-serif">
+            <div class="cards-wrapper" style="display: flex;flex-direction: row;flex-wrap: wrap;align-content: space-around;justify-content: space-evenly;align-items: center; font-family: 'Lato', sans-serif; font-weight: 700; ">
                 <% aData.forEach(function (adData) {%>
-                <div class = "card" style="display: flex;flex-direction: column;flex-wrap: nowrap;align-content: center;justify-content: center;align-items: center;min-height: 350px;min-width: 355px;background: #f1f1f1;border-color: black;border-radius: 45px;margin-top: 60px;box-shadow: 13px 15px 15px 0px rgba(15, 15, 15, 0.2);">
+                <div class = "card" style="display: flex;flex-direction: column;flex-wrap: nowrap;align-content: center;justify-content: center;align-items: center;min-height: 350px;min-width: 355px;background: #f1f1f1;border-color: black;border-radius: 45px;margin-top: 60px;box-shadow: 13px 15px 15px 0px rgba(15, 15, 15, 0.2); margin-right: 50px">
                     <p><%=adData.title %></p>
                     <img src="data:image/<%=adData.photos.contentType%>;base64,
                      <%=adData.photos.data.toString('base64')%>" style="height: 200px;width: 300px;border-radius: 30px;">

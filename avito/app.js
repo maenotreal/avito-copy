@@ -18,6 +18,7 @@ const exitRouter = require('./routes/exit');
 const adsRouter = require('./routes/ads');
 const cadsRouter = require('./routes/create_ad');
 const gadsRouter = require('./routes/getAds')
+const sadsRouter = require('./routes/show_ad');
 
 const deleteRouter = require('./routes/delete')
 
@@ -54,6 +55,9 @@ app.use('/exit', exitRouter);
 app.use('/ads', adsRouter);
 app.use('/create_ad', cadsRouter);
 app.use('/get_ads', gadsRouter);
+
+//Страница объявления
+app.use('/show_ad', sadsRouter);
 
 //Удаление объявлений
 app.use('/delete', deleteRouter);

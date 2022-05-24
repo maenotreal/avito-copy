@@ -28,14 +28,9 @@ router.post('/', auth.isLoggedIn, async function (req, res, next) {
     let token_data = jwt.decode(token, process.env.SECRET_KEY)
     let user_data = await user.findOne({login: token_data.login});
     req.files.photos.filename = makeid()+'.jpg';
-    const path1 = path.join(__dirname, '..', '/private/images', req.files.photos.filename);
-    req.files.photos.mv(path1, (err) => {
-        if (err) {
-            return res.status(500).send(err);
-        }
-    });
     let data = {
         _id: new mongoose.Types.ObjectId(),
+        login: user_data.login,
         title: req.body.title,
         photos: req.files.photos,
         description: req.body.description,
