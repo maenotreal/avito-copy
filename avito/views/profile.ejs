@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/stylesheets/style.css" rel="stylesheet"/>
+
+    <title><%= title %></title>
+</head>
+<body style="margin:0;">
+<div id="box">
+    <h2 id="a1">Площадка для объвлений</h2>
+    <div id="a2">
+        <a href="/ads">
+            <div id="reg-log-button">Назад</div>
+        </a>
+        <a href="/create_ad">
+            <div id="reg-log-button">Создать объявление</div>
+        </a>
+        <a href="/exit">
+            <div id="reg-log-button">Выйти</div>
+        </a>
+    </div>
+</div>
+<div class="profile">
+    <% uData.forEach(function (data) {%>
+    <div class="profile_data" style="font-family: 'lato', sans-serif;display: flex;flex-direction: column;flex-wrap: nowrap;align-content: center;justify-content: center;align-items: center;margin-top: 10%;">
+        <h2>Здравствуйте, <%=data.name%>!</h2>
+        <div class="login" style="margin: 10px;">Ваш логин: <%=data.login%></div>
+        <div class="number" style="margin: 10px;">Ваш телефон: <%=data.number%></div>
+        <% if(data.ad_ids === undefined || data.ad_ids.length == 0){%>
+            <div class="ads" style="margin: 10px;">У вас нету объявлений</div>
+        <%} else {%>
+            <div class="ads" style="margin: 10px;">Ваши объявления:</div>
+            <div class="cards-wrapper" style="display: flex;flex-direction: row;flex-wrap: wrap;align-content: space-around;justify-content: space-evenly;align-items: center; font-family: 'Lato', sans-serif">
+                <% aData.forEach(function (adData) {%>
+                <div class = "card" style="display: flex;flex-direction: column;flex-wrap: nowrap;align-content: center;justify-content: center;align-items: center;min-height: 350px;min-width: 355px;background: #f1f1f1;border-color: black;border-radius: 45px;margin-top: 60px;box-shadow: 13px 15px 15px 0px rgba(15, 15, 15, 0.2);">
+                    <p><%=adData.title %></p>
+                    <img src="data:image/<%=adData.photos.contentType%>;base64,
+                     <%=adData.photos.data.toString('base64')%>" style="height: 200px;width: 300px;border-radius: 30px;">
+                    <form action="/delete?id=<%=adData._id%>" method="post">
+                        <input type="submit" value="Удалить объявление" style="border: none; margin-top: 15px;height: 40px;background: aquamarine;width: 201px;text-align: center;vertical-align: middle;display: flex;border-radius: 30px;align-content: center;justify-content: center;align-items: center;">
+                    </form>
+                </div>
+                <%})%>
+            </div>
+        <%}%>
+    </div>
+    <%})%>
+</div>
+</body>
+</html>

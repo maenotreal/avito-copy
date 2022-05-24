@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/stylesheets/style.css" rel="stylesheet"/>
+
+    <title><%= title %></title>
+</head>
+<body style="margin:0;">
+<div id="box">
+    <h2 id="a1">Площадка для объвлений</h2>
+    <div id="a2">
+        <a href="/profile">
+            <div id="reg-log-button">Профиль</div>
+        </a>
+        <a href="/ads">
+            <div id="reg-log-button">Назад</div>
+        </a>
+        <a href="/exit">
+            <div id="reg-log-button">Выйти</div>
+        </a>
+    </div>
+</div>
+<div class="ad_create">
+    <form action="/create_ad" method="post" id="form1" enctype="multipart/form-data">
+        <h1>Создание объявления</h1>
+        <label for="title"><b>Название объявления</b></label><hr>
+        <input type="text" placeholder="IPhone 5" name="title" id="title" required>
+        <hr>
+        <label for="photos"><b>Загрузить фото</b></label><hr>
+        <input type="file" name="photos" id="photos" class="inputfile" required>
+        <hr>
+        <label for="description"><b>Описание товара</b></label><hr>
+        <input type="text" placeholder="Описание товара" name="description" id="description" required>
+        <hr>
+        <input type="submit" value="Создать объявление" name="create_ad_but" id="create_ad_but" style="min-width: 350px;min-height: 40px;border-radius: 15px;text-transform: capitalize;background-color: aquamarine;border: none;font-weight: 700;">
+    </form>
+</div>
+</body>
+</html>
